@@ -1,0 +1,25 @@
+{
+	"name": "etformvalidation",
+	"title": "ETFormValidation (with optional Bootstrap-Support!)",
+	"description": "Easy to use jQuery plugin for validating forms.",
+    "keywords": [
+        "validation",
+        "form",
+        "bootstrap"
+    ],
+    "version": "0.1",
+    "author": {
+        "name": "Fabio Poloni"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "TODO.com"
+        }
+    ],
+    "bugs": "TODO.com",
+    "dependencies": {
+        "jquery": ">=1.2",
+        "bootstrap": ">=2.0.0"
+    }
+}

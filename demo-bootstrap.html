@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Demo of ETFormValidation with Bootstrap</title>
+		
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+		
+		<script src="js/jquery.etformvalidation.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("form").etformvalidation({
+					bootstrap: true
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<form class="well form-horizontal">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">Text / Optional</label>
+					<div class="controls">
+						<input type="text" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Text / Required</label>
+					<div class="controls">
+						<input type="text" data-etfv=""/>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Text / Required</label>
+					<div class="controls">
+						<input type="text" data-etfv="simple" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Text / Max. 3 chars</label>
+					<div class="controls">
+						<input type="text" data-etfv="3"/>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Text / Number</label>
+					<div class="controls">
+						<input type="text" data-etfv="number"/>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Text / Date</label>
+					<div class="controls">
+						<input type="text" data-etfv="date"/>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Password</label>
+					<div class="controls">
+						<input type="password" data-etfv=""/>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Radiobutton</label>
+					<div class="controls">
+						<input type="radio" name="radio" data-etfv=""/>Radio 1
+						<input type="radio" name="radio" data-etfv=""/>Radio 2
+						<input type="radio" name="radio" data-etfv=""/>Radio 3
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Checkbox</label>
+					<div class="controls">
+						<input type="checkbox" name="checkbox" data-etfv=""/>Checkbox 1
+						<input type="checkbox" name="checkbox" data-etfv=""/>Checkbox 2
+						<input type="checkbox" name="checkbox" data-etfv=""/>Checkbox 3
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Textarea</label>
+					<div class="controls">
+						<textarea data-etfv=""></textarea>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Select</label>
+					<div class="controls">
+						<select data-etfv="">
+							<option value=""></option>
+							<option value="Select 1">Select 1</option>
+							<option value="Select 2">Select 2</option>
+							<option value="Select 3">Select 3</option>
+						</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<input class="btn" type="submit" value="Submit"/>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</body>
+</html>

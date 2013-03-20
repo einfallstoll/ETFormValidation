@@ -8,7 +8,7 @@ Requirements
 How to include
 ==============
 
-In your <code>&lt;head&gt;<code>-Tag:
+In your <code>&lt;head&gt;</code>-Tag:
 
 	<link href="css/bootstrap.min.css" rel="stylesheet"> <!-- OPTIONAL -->
 	<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>

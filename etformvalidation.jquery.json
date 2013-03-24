@@ -14,10 +14,10 @@
     "licenses": [
         {
             "type": "MIT",
-            "url": "TODO.com"
+            "url": "https://github.com/einfallstoll/ETFormValidation"
         }
     ],
-    "bugs": "TODO.com",
+    "bugs": "https://github.com/einfallstoll/ETFormValidation/issues",
     "dependencies": {
         "jquery": ">=1.2",
         "bootstrap": ">=2.0.0"

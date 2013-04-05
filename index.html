@@ -1,106 +1,253 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<title>ETFormValidation</title>
+		
+		<!-- jQuery 1.9.1 -->
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		
+		<!-- jQuery UI 1.10.2 -->
+		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+		
+		<!-- Bootstrap 2.3.1 -->
+		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+		<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="ETFormValidation : Easy to use jQuery plugin for validating forms." />
+		<!-- ETFormValidation 0.1.0 -->
+		<script src="http://einfallstoll.github.com/ETFormValidation/js/jquery.etformvalidation.js"></script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span8 offset2">
+					<h1>ETFormValidation</h1>
+					<h4>Easy to use jQuery plugin for validating forms.</h4>
+					<a class="btn btn-primary" href="https://github.com/einfallstoll/ETFormValidation"><img src="images/blacktocat.png"/> View on GitHub</a>
+					<a class="btn" href="https://github.com/einfallstoll/ETFormValidation/zipball/master"><img src="images/icon_download.png"/> Download as .zip</a>
+					<a class="btn" href="https://github.com/einfallstoll/ETFormValidation/tarball/master"><img src="images/icon_download.png"/> Download as .tar.gz</a>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+					<h2>What's ETFormValidation</h2>
+					<p>
+						ETFormValidation is a simple jQuery-Plugin which allows to validate forms as easy as possible!
+					</p>
+					<h2>What's required?</h2>
+					<ul>
+						<li>jQuery</li>
+						<li>jQuery UI (optional, <em><strong>required for date-validation</em></strong>)</li>
+						<li>Bootstrap (optional, <em><strong>required for Bootstrap-support</em></strong>)</li>
+					</ul>
+					<h2>Attributes (HTML5)</h2>
+					<ul>
+						<li><code>&lt;input&gt;</code>, <code>&lt;select&gt;</code> &amp; <code>&lt;textarea&gt;</code>
+							<ul>
+								<li><code>data-etfv="simple"</code> field can't be empty</li>
+								<li><code>data-etfv=""</code> <em>Same as above</em></li>
+							</ul>
+						</li>
+						<li><code>&lt;input&gt;</code> with <code>type="text"</code>
+							<ul>
+								<li><code>data-etfv="date"</code> checks for a valid date <strong>(requires jQuery UI!)</strong></li>
+								<li><code>data-etfv="number"</code> checks for a number and prevents other characters</li>
+								<li><code>data-etfv="5"</code> adds a limitation to 5 characters (every number is possible)</li>
+							</ul>
+						</li>
+					</ul>
+					<h2>Options (JS)</h2>
+					<ul>
+						<li><strong>bootstrap:</strong> true | false <em>enable Bootstrap</em></li>
+						<li><strong>dateFormat:</strong> string <em><a href="http://jqueryui.com/datepicker/#date-formats">jQuery UI Date Format</a></em></li>
+						<li><strong>error:</strong> string <em>displayed when the user didn't fill out all required fields</em></li>
+					</ul>
+					<h2>Getting Started</h2>
+					<p>
+						Either you download the required sources and link them in your head or you can just add this to your <code>&lt;head&gt;</code>-Tag:
+<pre>&lt;!-- jQuery 1.9.1 --&gt;
+&lt;script src="http://code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
 
-    <title>ETFormValidation</title>
-  </head>
+&lt;!-- jQuery UI 1.10.2 --&gt;
+&lt;script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"&gt;&lt;/script&gt;
 
-  <body>
+&lt;!-- Bootstrap 2.3.1 --&gt;
+&lt;link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet"&gt;
+&lt;script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"&gt;&lt;/script&gt;
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/einfallstoll/ETFormValidation">View on GitHub</a>
-
-          <h1 id="project_title">ETFormValidation</h1>
-          <h2 id="project_tagline">Easy to use jQuery plugin for validating forms.</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/einfallstoll/ETFormValidation/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/einfallstoll/ETFormValidation/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>Requirements</h1>
-
-<ul>
-<li> jQuery</li>
-<li> jQuery UI</li>
-<li> Bootstrap (optional)</li>
-</ul><h1>How to include</h1>
-
-<p>In your <code>&lt;head&gt;</code>-Tag:</p>
-
-<pre><code>&lt;link href="css/bootstrap.min.css" rel="stylesheet"&gt; &lt;!-- OPTIONAL --&gt;
-&lt;script src="js/jquery-1.9.1.min.js" type="text/javascript"&gt;&lt;/script&gt;
-&lt;script src="js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"&gt;&lt;/script&gt;
-
-&lt;script src="js/jquery.etformvalidation.js" type="text/javascript"&gt;&lt;/script&gt;
-</code></pre>
-
-<h1>How to use</h1>
-
-<pre><code>&lt;script type="text/javascript"&gt;
-    $(document).ready(function() {
-        $("form").etformvalidation(/* options */);
-    });
-&lt;/script&gt;
-</code></pre>
-
-<h1>Options</h1>
-
-<ul>
-<li> bootstrap
-
-<ul>
-<li>true / false (default)</li>
-</ul>
-</li>
-<li> dateFormat
-
-<ul>
-<li>mm/dd/yy (default)</li>
-</ul>
-</li>
-<li> error
-
-<ul>
-<li>Please fill in the whole form.</li>
-</ul>
-</li>
-</ul><h1>License</h1>
-
-<blockquote>
-<p>Copyright (c) 2013 Fabio Poloni</p>
-
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
-
-<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
-
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-</blockquote>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">ETFormValidation maintained by <a href="https://github.com/einfallstoll">einfallstoll</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+&lt;!-- ETFormValidation 0.1.0 --&gt;
+&lt;script src="http://einfallstoll.github.com/ETFormValidation/js/jquery.etformvalidation.js"&gt;&lt;/script&gt;</pre>
+					</p>
+					<p>
+						Now you need to create your <code>&lt;form&gt;</code>. You really need this "desgin":
+<pre>&lt;form class="form-horizontal"&gt;
+	&lt;fieldset&gt;
+		&lt;div class="control-group"&gt;
+			&lt;label class="control-label"&gt;Text&lt;/label&gt;
+			&lt;div class="controls"&gt;
+				&lt;input type="text" /&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;</pre>
+						This will create this <code>&lt;form&gt;</code>:
+					</p>
+						<form class="well form-horizontal">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label">Text</label>
+									<div class="controls">
+										<input type="text" />
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					<p>
+						Now we want to say which fields are validated. <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code> &amp; <code>&lt;textarea&gt;</code> support a simple "required"-option with the attribute <code>data-etfv="simple"</code>:
+						<pre>&lt;input type="text" <strong>data-etfv="simple"</strong> /&gt;</pre>
+						<code>&lt;input&gt;</code> with <code>type="text"</code> support some other validation-options:
+					</p>
+						<ul>
+							<li><code>data-etfv="date"</code> checks for a valid date <strong>(requires jQuery UI!)</strong></li>
+							<li><code>data-etfv="number"</code> checks for a number and prevents other characters</li>
+							<li><code>data-etfv="5"</code> adds a limitation to 5 characters (every number is possible)</li>
+						</ul>
+					<p>
+						<em>Note: If you add the <code>data-etfv</code>-attribute the field is automatically marked as required! Maybe there will be another solution in the future.</em>
+					</p>
+					<p>
+						Last, but not least, you have to add some JavaScript to activate the validation:
+<pre>&lt;script type="text/javascript"&gt;
+	$(document).ready(function() {
+		$("form").etformvalidation();
+	});
+&lt;/script&gt;</pre>
+						You may want add to add some options:
+<pre>&lt;script type="text/javascript"&gt;
+	$(document).ready(function() {
+		$("form").etformvalidation({
+			<strong>bootstrap: true,
+			dateFormat:"mm.dd.yy",
+			error:"You forgot to fill in the whole form."</strong>
+		});
+	});
+&lt;/script&gt;</pre>
+						Here is a full working <code>&lt;form&gt;</code> with Bootstrap-Support:
+					</p>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							$("form#bs").etformvalidation({
+								bootstrap: true
+							});
+						});
+					</script>
+					<form id="bs" class="well form-horizontal">
+						<fieldset>
+							<div class="control-group">
+								<label class="control-label">Text / Optional</label>
+								<div class="controls">
+									<input type="text" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Text / Required</label>
+								<div class="controls">
+									<input type="text" data-etfv=""/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Text / Required</label>
+								<div class="controls">
+									<input type="text" data-etfv="simple" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Text / Max. 3 chars</label>
+								<div class="controls">
+									<input type="text" data-etfv="3"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Text / Number</label>
+								<div class="controls">
+									<input type="text" data-etfv="number"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Text / Date</label>
+								<div class="controls">
+									<input type="text" data-etfv="date"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Password</label>
+								<div class="controls">
+									<input type="password" data-etfv=""/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Radiobutton</label>
+								<div class="controls">
+									<input type="radio" name="radio" data-etfv=""/>Radio 1
+									<input type="radio" name="radio" data-etfv=""/>Radio 2
+									<input type="radio" name="radio" data-etfv=""/>Radio 3
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Checkbox</label>
+								<div class="controls">
+									<input type="checkbox" name="checkbox" data-etfv=""/>Checkbox 1
+									<input type="checkbox" name="checkbox" data-etfv=""/>Checkbox 2
+									<input type="checkbox" name="checkbox" data-etfv=""/>Checkbox 3
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Textarea</label>
+								<div class="controls">
+									<textarea data-etfv=""></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Select</label>
+								<div class="controls">
+									<select data-etfv="">
+										<option value=""></option>
+										<option value="Select 1">Select 1</option>
+										<option value="Select 2">Select 2</option>
+										<option value="Select 3">Select 3</option>
+									</select>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<input class="btn" type="submit" value="Submit"/>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+					<p>
+						And without Bootstrap:
+					</p>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							$("form#no-bs").etformvalidation({
+								bootstrap: false
+							});
+						});
+					</script>
+					<form id="no-bs" class="well">
+						<fieldset>
+							<div class="control-group">
+								<label class="control-label">Text / Required</label>
+								<div class="controls">
+									<input type="text" data-etfv=""/>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<input class="btn" type="submit" value="Submit"/>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
